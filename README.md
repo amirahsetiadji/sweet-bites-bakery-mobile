@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # sweet_bites_bakery
 
 A new Flutter project.
@@ -14,3 +15,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# sweet-bites-bakery-mobile
+>>>>>>> b30d00854bf2614cedf562d17c1535e579a083e7
