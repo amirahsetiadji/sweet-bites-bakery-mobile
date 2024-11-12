@@ -42,3 +42,83 @@
 - **Menyusun Widget untuk Layout**: Widget seperti `Column`, `Row`, dan `GridView` digunakan untuk menyusun tata letak elemen di halaman. Saya menggunakan `Padding` untuk memberi ruang dan `Card` untuk menampilkan informasi dalam kotak.
 - **Mengimplementasikan Snackbar**: `InkWell` digunakan pada tombol dengan fungsi `onTap` untuk menampilkan `SnackBar` ketika tombol ditekan, menunjukkan pesan sesuai dengan tombol yang dipilih.
 - **Menggunakan const dan final**: `const` digunakan untuk nilai yang bersifat konstan di seluruh aplikasi, seperti teks statis, sedangkan `final` digunakan untuk variabel yang nilainya tetap setelah diinisialisasi, seperti item dalam `ItemHomepage`.
+
+# TUGAS 8
+1. **Apa kegunaan `const` di Flutter?**
+   Penggunaan `const` di Flutter memungkinkan kita untuk mendefinisikan objek yang nilainya tetap (immutable) dan tidak berubah selama runtime. Penggunaan `const` memberikan beberapa keuntungan, di antaranya:
+   
+   **Keuntungan Menggunakan `const`:**
+   - **Efisiensi memori:** Objek yang ditandai `const` hanya disimpan sekali di memori, sehingga menghemat penggunaan memori.
+   - **Peningkatan performa rendering:** Widget yang bersifat `const` dapat di-cache, sehingga tidak perlu dibangun ulang, yang meningkatkan performa aplikasi.
+   
+   **Kapan Menggunakan `const`:**
+   - Untuk widget literal, seperti `Text`, `Icon`, dan `Container`.
+   - Untuk objek yang sifatnya tidak bisa diubah, misalnya warna (`Color`), ukuran (`Size`), atau gaya teks (`TextStyle`).
+   - Untuk variabel tetap yang bersifat konstan, misalnya URL API atau konfigurasi aplikasi.
+
+   **Kapan Tidak Menggunakan `const`:**
+   - Pada objek yang nilainya berubah-ubah (mutable).
+   - Saat melibatkan perhitungan yang kompleks.
+   - Jika objek hanya digunakan dalam konteks tertentu dan tidak akan digunakan secara global.
+
+2. **Perbandingan `Column` dan `Row` di Flutter:**
+   - **Column:** Menyusun widget secara vertikal (dari atas ke bawah). Berguna untuk menyusun elemen yang ditumpuk, seperti judul, deskripsi, dan tombol.
+     - **Contoh implementasi:**
+       ```dart
+       Column(
+         children: [
+           Text('Ini Judul'),
+           SizedBox(height: 16.0),
+           Text('Ini Deskripsi'),
+           SizedBox(height: 16.0),
+           ElevatedButton(
+             onPressed: () { /* aksi */ },
+             child: Text('Klik Saya'),
+           ),
+         ],
+       )
+       ```
+
+   - **Row:** Menyusun widget secara horizontal (dari kiri ke kanan). Berguna untuk menyusun elemen yang sejajar, seperti ikon dan teks.
+     - **Contoh implementasi:**
+       ```dart
+       Row(
+         children: [
+           Icon(Icons.arrow_back),
+           SizedBox(width: 8.0),
+           Text('Kembali'),
+         ],
+       )
+       ```
+
+   **Perbedaan Utama:**
+   - `Column` digunakan untuk tata letak vertikal, sedangkan `Row` untuk tata letak horizontal.
+   - `Column` lebih cocok untuk elemen yang ditumpuk, sementara `Row` untuk elemen yang sejajar.
+   - Keduanya bisa digabungkan untuk membuat tata letak yang lebih kompleks, seperti grid atau kartu.
+
+3. **Perbandingan `TextField` dan `NumberField` di Flutter:**
+   - **TextField:** Komponen untuk menerima input teks dari pengguna. `TextField` mendukung berbagai kustomisasi, seperti hint text, input formatters, dan validasi.
+   - **NumberField:** Digunakan khusus untuk menerima input angka dari pengguna, merupakan turunan `TextField` dengan format input angka.
+
+   **Elemen Input Lain yang Tersedia di Flutter:**
+   - **Dropdown:** Untuk memilih satu opsi dari daftar.
+   - **Checkbox/Switch:** Untuk input boolean (ya/tidak).
+   - **RadioButton:** Untuk memilih satu opsi dari beberapa pilihan.
+   - **Slider:** Untuk memilih nilai dalam rentang tertentu.
+   - **RangeSlider:** Untuk memilih rentang nilai.
+   - **FileInput:** Untuk memilih file dari penyimpanan perangkat.
+
+4. **Pengaturan Tema (Theme) dalam Aplikasi Flutter:**
+   - Tema global dapat didefinisikan dalam `main.dart` menggunakan `ThemeData`.
+   - Tema mencakup warna, tipografi, dan gaya visual untuk menciptakan konsistensi di seluruh aplikasi.
+   - Widget dapat mengambil tema dari `Theme.of(context)`, yang memastikan konsistensi di seluruh aplikasi.
+   - Untuk kebutuhan khusus, tema dapat diterapkan hanya pada widget tertentu dengan membungkusnya dalam `Theme` widget.
+
+   Dengan tema yang konsisten, aplikasi Flutter dapat mempertahankan tampilan yang selaras di setiap bagian aplikasi.
+
+5. **Penanganan Navigasi dalam Aplikasi Multi-Halaman di Flutter:**
+   - **Navigator** digunakan sebagai stack untuk mengelola perpindahan antar halaman.
+   - Rute halaman dapat didefinisikan dalam `main.dart`.
+   - Untuk berpindah ke halaman baru, gunakan `Navigator.pushNamed(context, routeName)`.
+   - Untuk kembali ke halaman sebelumnya, gunakan `Navigator.pop(context)`.
+   - Drawer juga dapat ditambahkan untuk memberikan akses cepat ke halaman-halaman utama dalam aplikasi.
