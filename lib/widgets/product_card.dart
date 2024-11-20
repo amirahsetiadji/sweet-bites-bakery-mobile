@@ -52,7 +52,7 @@ class ItemCard extends StatelessWidget {
           if (item.name == "Add Product") {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const ClothingEntryFormPage()),
+              MaterialPageRoute(builder: (context) => const ProductEntryFormPage()),
             );
           }
         },
